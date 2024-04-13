@@ -26,8 +26,6 @@ import java.util.function.UnaryOperator;
 
 public class PruebaVarianza {
     @FXML private AnchorPane mainmenu;
-    @FXML private Label welcomeText;
-    @FXML private Button button;
     @FXML private TextField textField;
     @FXML private Label nValue;
     @FXML private Label varianza;
