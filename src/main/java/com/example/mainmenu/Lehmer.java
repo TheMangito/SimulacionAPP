@@ -128,18 +128,21 @@ public class Lehmer {
     }
 
 
-    public void Aceptar(){
+    public void Aceptar(ActionEvent evento){
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        try {
+
         this.table.getItems().clear();
 
         long Xo = DatoXo();
 
         long A = DatoA();
 
+        int num = DatoNum();
+
         long ZoLong = Xo*A;
         String ZoString  = Long.toString(ZoLong);
         ZoText.setText(ZoString);
-
-        int num = DatoNum();
 
         String mString = Long.toString(Xo);
         int largo = mString.length();
@@ -165,10 +168,16 @@ public class Lehmer {
             this.table.getItems().add(numero);
         }
 
+        } catch (NumberFormatException e) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("El valor tiene que ser un numero");
+            alert.show();
+        }
+
     }
 
     public long DatoXo(){
-        if(XoText.getText() != ""){
+        if(!XoText.getText().equals("")){
             long Dato1 = Long.parseLong(XoText.getText());
             return Dato1;
         } else {
@@ -177,7 +186,7 @@ public class Lehmer {
     }
 
     public long DatoA(){
-        if(AText.getText() != ""){
+        if(!AText.getText().equals("")){
             long Dato2 = Long.parseLong(AText.getText());
             return Dato2;
         } else {
@@ -186,7 +195,7 @@ public class Lehmer {
     }
 
     public int DatoNum(){
-        if(numText.getText() != ""){
+        if(!numText.getText().equals("")){
             int Dato3 = Integer.parseInt(numText.getText());
             return Dato3;
         } else {
