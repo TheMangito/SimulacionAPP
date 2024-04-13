@@ -69,7 +69,6 @@ public class ChiCuadrado {
     public void initialize(){
         valorKColumn.setCellValueFactory(new PropertyValueFactory<KDatos, Double>("ValorKColumn"));
         kColumn.setCellValueFactory(new PropertyValueFactory<KDatos, String>("kColumn"));
-
         clases1.setCellValueFactory(new PropertyValueFactory<Clase, Integer>("clases1"));
         clases2.setCellValueFactory(new PropertyValueFactory<Clase, String>("clases2"));
         frecAbs.setCellValueFactory(new PropertyValueFactory<Clase, Integer>("frecAbs"));
