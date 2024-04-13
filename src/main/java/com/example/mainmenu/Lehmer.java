@@ -36,7 +36,6 @@ public class Lehmer {
     @FXML private TableColumn<Numero , Long> Extrac;
     @FXML private TableColumn<Numero , Double> pseudoCol;
     @FXML private TableColumn<Numero , Long> ZCol;
-
     private long ExtracLong;
     private double m;
     private long A;
@@ -156,7 +155,6 @@ public class Lehmer {
         }
 
     }
-
     public long DatoXo(){
         if(XoText.getText() != ""){
             long Dato1 = Long.parseLong(XoText.getText());
@@ -165,7 +163,6 @@ public class Lehmer {
             throw new IllegalArgumentException("Faltan datos en Xo.");
         }
     }
-
     public long DatoA(){
         if(AText.getText() != ""){
             long Dato2 = Long.parseLong(AText.getText());
@@ -174,7 +171,6 @@ public class Lehmer {
             throw new IllegalArgumentException("Faltan datos en A.");
         }
     }
-
     public int DatoNum(){
         if(numText.getText() != ""){
             int Dato3 = Integer.parseInt(numText.getText());
@@ -186,24 +182,18 @@ public class Lehmer {
     public long getYlong() {
         return Ylong;
     }
-
     public long getExtracLong() {
         return ExtracLong;
     }
-
     public long getZ2() {
         return z2;
     }
-
-
     public class Numero {
         private int iteracion;
         private double pseudoNumero;
         private long YCol;
         private long Extrac;
         private long ZCol;
-
-
         public Numero(int iteracion, double pseudoNumero, long YCol, long Extrac, long ZCol) {
             this.iteracion = iteracion;
             this.pseudoNumero = pseudoNumero;

@@ -75,9 +75,7 @@ public class PruebaVarianza {
             }
             return null;
         };
-
         nivelConfianza.setTextFormatter(new TextFormatter<>(filter));
-
     }
 
     public static List<Double> parseNumbers(String data) {
@@ -151,38 +149,42 @@ public class PruebaVarianza {
         return chiSquaredDistribution.inverseCumulativeProbability(probability);
     }
 
-    public void button(){
-        List<Double> lista = parseNumbers(textField.getText().substring(1));
-        int nValue = lista.size();
-        double nivelConfianza = (double) Integer.parseInt(this.nivelConfianza.getText()) /100;
-        double varianza = varS(lista);
-        double alpha = 1-nivelConfianza;
-        double alpha_2 = alpha/2;
-        double za_2 = invNormEstand(alpha_2);
-        double chi1 = invChiCuad(alpha_2, nValue-1);
-        double chi2 = invChiCuad(1-alpha_2, nValue-1);
-        double li = chi1/(12*(nValue-1));
-        double ls = chi2/(12*(nValue-1));
+    public void button() {
+        if (!nivelConfianza.getText().isEmpty() && !nValue.getText().isEmpty()) {
+            List<Double> lista = parseNumbers(textField.getText().substring(1));
+            int nValue = lista.size();
+            double nivelConfianza = (double) Integer.parseInt(this.nivelConfianza.getText()) / 100;
+            double varianza = varS(lista);
+            double alpha = 1 - nivelConfianza;
+            double alpha_2 = alpha / 2;
+            double za_2 = invNormEstand(alpha_2);
+            double chi1 = invChiCuad(alpha_2, nValue - 1);
+            double chi2 = invChiCuad(1 - alpha_2, nValue - 1);
+            double li = chi1 / (12 * (nValue - 1));
+            double ls = chi2 / (12 * (nValue - 1));
 
-        this.nValue.setText(String.valueOf(nValue));
-        this.varianza.setText(String.valueOf(varianza));
-        this.alfa.setText(String.valueOf(alpha));
-        this.alfa_2.setText(String.valueOf(alpha_2));
-        this.za_2.setText(String.valueOf(1-za_2));
-        this.chi1.setText(String.valueOf(chi1));
-        this.chi2.setText(String.valueOf(chi2));
-        this.li.setText(String.valueOf(li));
-        this.ls.setText(String.valueOf(ls));
+            this.nValue.setText(String.valueOf(nValue));
+            this.varianza.setText(String.valueOf(varianza));
+            this.alfa.setText(String.valueOf(alpha));
+            this.alfa_2.setText(String.valueOf(alpha_2));
+            this.za_2.setText(String.valueOf(1 - za_2));
+            this.chi1.setText(String.valueOf(chi1));
+            this.chi2.setText(String.valueOf(chi2));
+            this.li.setText(String.valueOf(li));
+            this.ls.setText(String.valueOf(ls));
 
-        if (varianza>=li && varianza<=ls){
-            this.conclusion.setText("Se acepta Ho");
-        }else
-            this.conclusion.setText("No se acepta Ho");
-
-
-        //probabilidad = 1 - alpha / 2
-        System.out.println("Valor inverso de la distribución normal estándar (INV.NORM.ESTAND) para P = " + nivelConfianza + ": " + invNormEstand(1 - alpha / 2));
-        int gradosLibertad = lista.size()-1;
-        System.out.println("Valor inverso de la distribución chi-cuadrado (INV.CHICUAD) para P = " + nivelConfianza + " y grados de libertad = " + gradosLibertad + ": " + invChiCuad(1 - alpha / 2, gradosLibertad));
+            if (varianza >= li && varianza <= ls) {
+                this.conclusion.setText("Se acepta Ho");
+            } else {
+                this.conclusion.setText("No se acepta Ho");
+            }
+            //probabilidad = 1 - alpha / 2
+            System.out.println("Valor inverso de la distribución normal estándar (INV.NORM.ESTAND) para P = " + nivelConfianza + ": " + invNormEstand(1 - alpha / 2));
+            int gradosLibertad = lista.size()-1;
+            System.out.println("Valor inverso de la distribución chi-cuadrado (INV.CHICUAD) para P = " + nivelConfianza + " y grados de libertad = " + gradosLibertad + ": " + invChiCuad(1 - alpha / 2, gradosLibertad));
+        }
+        else {
+            System.out.println("Error");
+        }
     }
 }
