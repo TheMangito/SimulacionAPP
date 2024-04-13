@@ -113,7 +113,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="pruebaMedia" layoutX="727.0" layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" styleClass="button-designLeft">
+      <Button fx:id="pruebaMedia" onAction="#pruebaMedia" layoutX="727.0" layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" styleClass="button-designLeft">
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
