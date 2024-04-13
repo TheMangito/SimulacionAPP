@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.ProductosMedios" styleClass="anchorpane-design" stylesheets="@styles.css">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+      <Pane layoutX="28.0" layoutY="265.0" prefHeight="402.0" prefWidth="883.0" styleClass="pane-transparent">
+         <children>
+                  <TableView fx:id="table" layoutX="206.0" layoutY="89.0" prefHeight="248.0" prefWidth="468.0" styleClass="table-view">
+                      <columns>
+                          <TableColumn fx:id="iteracionesCol" prefWidth="93.0" text="Iteraciones" />
+                          <TableColumn prefWidth="127.0" text="Las X" fx:id="xCol" />
+                          <TableColumn fx:id="zCol" prefWidth="133.0" text="Las Z" />
+                          <TableColumn fx:id="decimalesCol" prefWidth="114.0" text="Decimales" />
+                      </columns>
+                  </TableView>
+              <TextField layoutX="198.0" layoutY="41.0" prefHeight="26.0" prefWidth="123.0" styleClass="datos-design" fx:id="x0" />
+              <Label layoutX="218.0" layoutY="6.0" prefHeight="35.0" prefWidth="116.0" styleClass="datos-title-design" text="Introduce Xo" />
+              <TextField fx:id="y0" layoutX="358.0" layoutY="41.0" prefHeight="26.0" prefWidth="135.0" styleClass="datos-design" />
+              <Label layoutX="384.0" layoutY="6.0" prefHeight="35.0" prefWidth="135.0" styleClass="datos-title-design" text="Introduce Y" />
+              <TextField fx:id="iteraciones" layoutX="523.0" layoutY="41.0" prefHeight="31.0" prefWidth="156.0" styleClass="datos-design" />
+              <Label layoutX="523.0" layoutY="6.0" prefHeight="35.0" prefWidth="156.0" styleClass="datos-title-design" text="Numero de Iteraciones" />
+              <Label fx:id="zValue" layoutX="729.0" layoutY="148.0" prefHeight="35.0" prefWidth="123.0" styleClass="datos-design" visible="false" />
+              <Label layoutX="729.0" layoutY="114.0" prefHeight="35.0" prefWidth="123.0" styleClass="datos-title-design" text="Zo" visible="false" />
+              <Button fx:id="comenzar" layoutX="384.0" layoutY="353.0" mnemonicParsing="false" onAction="#comenzarMetodo" prefHeight="35.0" prefWidth="88.0" styleClass="button-comenzar" text="Comenzar" />
+         </children></Pane>
+        <Label layoutX="271.0" layoutY="187.0" prefHeight="63.0" prefWidth="402.0" styleClass="font-title, title-size-font" text="Productos Medios" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+    </children>
+</AnchorPane>

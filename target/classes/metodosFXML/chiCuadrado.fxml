@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.ChiCuadrado">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+        <Pane layoutX="20.0" layoutY="265.0" prefHeight="402.0" prefWidth="904.0" styleClass="pane-transparent">
+            <children>
+                <TextField fx:id="KField" layoutX="275.0" layoutY="84.0" prefHeight="26.0" prefWidth="62.0" styleClass="datos-design" />
+                <TextField fx:id="Datos" layoutX="32.0" layoutY="110.0" prefHeight="94.0" prefWidth="123.0" styleClass="datos-design" />
+                <Label layoutX="213.0" layoutY="84.0" prefHeight="32.0" prefWidth="45.0" styleClass="datos-title-design" text="K" />
+                <Label layoutX="193.0" layoutY="137.0" prefHeight="20.0" prefWidth="78.0" styleClass="datos-title-design" text="Amplitud" />
+                <TextField fx:id="AmpField" layoutX="275.0" layoutY="131.0" prefHeight="26.0" prefWidth="62.0" styleClass="datos-design" />
+                <Button fx:id="button" layoutX="105.0" layoutY="236.0" mnemonicParsing="false" onAction="#button" prefHeight="46.0" prefWidth="151.0" styleClass="button-comenzar" text="Generar" />
+                <Label layoutX="57.0" layoutY="77.0" prefHeight="20.0" prefWidth="97.0" styleClass="datos-title-design" text="Datos">
+                </Label>
+                <TextField fx:id="NcText" layoutX="275.0" layoutY="174.0" prefHeight="26.0" prefWidth="62.0" styleClass="datos-design" />
+                <Label layoutX="180.0" layoutY="166.0" prefHeight="46.0" prefWidth="85.0" styleClass="datos-title-design" text="Nivel de confianza" wrapText="true">
+                </Label>
+                <AnchorPane layoutX="45.0" layoutY="429.0" prefHeight="290.0" prefWidth="517.0" />
+                <TextField fx:id="ValorX2" editable="false" layoutX="400.0" layoutY="100.0" prefHeight="26.0" prefWidth="99.0" styleClass="datos-design" />
+                <Label layoutX="545.0" layoutY="14.0" prefHeight="26.0" prefWidth="117.0" styleClass="datos-title-design" text="Resultados:">
+                </Label>
+                <TextField editable="false" layoutX="510.0" layoutY="100.0" prefHeight="26.0" prefWidth="106.0" styleClass="datos-design" fx:id="x2Prueba" />
+                <TextField fx:id="pruebaHip" editable="false" layoutX="626.0" layoutY="100.0" prefHeight="31.0" prefWidth="251.0" styleClass="datos-design" />
+                <Label layoutX="411.0" layoutY="58.0" prefHeight="32.0" prefWidth="99.0" styleClass="datos-title-design" text="Valor X2" />
+                <Label layoutX="510.0" layoutY="53.0" prefHeight="46.0" prefWidth="99.0" styleClass="datos-title-design" text="Valor X2 Prueba" wrapText="true" />
+                <Label layoutX="669.0" layoutY="61.0" prefHeight="26.0" prefWidth="251.0" styleClass="datos-title-design" text="Prueba de hipotesis" />
+                <TableView fx:id="table" layoutX="408.0" layoutY="167.0" prefHeight="164.0" prefWidth="303.0">
+                    <columns>
+                        <TableColumn fx:id="clases1" prefWidth="62.200016021728516" text="Clases" />
+                        <TableColumn fx:id="clases2" prefWidth="78.0" />
+                        <TableColumn fx:id="frecAbs" prefWidth="86.80000305175781" text="Frec abs" />
+                        <TableColumn fx:id="frecAcum" prefWidth="75.0" text="Frec acum" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="kTable" layoutX="719.0" layoutY="167.0" prefHeight="164.0" prefWidth="151.0">
+                    <columns>
+                        <TableColumn fx:id="kColumn" prefWidth="75.0" text="kn" />
+                        <TableColumn fx:id="valorKColumn" prefWidth="75.0" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Label layoutX="361.0" layoutY="184.0" prefHeight="63.0" prefWidth="402.0" styleClass="font-title, title-size-font" text="Chi Cuadrada" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+    </children>
+</AnchorPane>

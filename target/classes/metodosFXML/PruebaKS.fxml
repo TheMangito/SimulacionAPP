@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.PruebaKS">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+        <Pane layoutX="20.0" layoutY="265.0" prefHeight="402.0" prefWidth="904.0" styleClass="pane-transparent">
+            <children>
+                <TableView fx:id="tabla" layoutX="52.0" layoutY="62.0" prefHeight="317.0" prefWidth="563.0">
+                    <columns>
+                        <TableColumn fx:id="Coli" prefWidth="50.20001298189163" text="i" />
+                        <TableColumn fx:id="ColXi" prefWidth="57.399986267089844" text="Xi" />
+                        <TableColumn fx:id="ColN" prefWidth="64.19999694824219" text="i/n" />
+                        <TableColumn fx:id="ColNX" prefWidth="93.0" text="(i/n)-Xi" />
+                        <TableColumn fx:id="ColAbsNX" prefWidth="83.0" text="Abs((i/n)-Xi)" />
+                        <TableColumn fx:id="ColXN" prefWidth="106.0" text="Xi-((i-1)/n)" />
+                        <TableColumn fx:id="ColAbsXN" prefWidth="106.0" text="Abs((Xi-((i-1)/n)" />
+                    </columns>
+                </TableView>
+                <Button fx:id="boton1" layoutX="510.0" layoutY="19.0" mnemonicParsing="false" onAction="#boton1" prefHeight="26.0" prefWidth="91.0" styleClass="button-comenzar" text="Calcular" />
+                <TextField fx:id="txtDatos" layoutX="56.0" layoutY="17.0" prefHeight="31.0" prefWidth="304.0" promptText="Datos" styleClass="datos-design" />
+                <Label layoutX="715.0" layoutY="29.0" styleClass="datos-title-design" text="N" />
+                <Label layoutX="713.0" layoutY="61.0" styleClass="datos-title-design" text="D+" />
+                <Label layoutX="714.0" layoutY="93.0" styleClass="datos-title-design" text="D-" />
+                <Label layoutX="715.0" layoutY="126.0" styleClass="datos-title-design" text="D" />
+                <Label layoutX="370.0" layoutY="23.0" styleClass="datos-title-design" text="NC" />
+                <Label fx:id="labelN" layoutX="740.0" layoutY="29.0" prefHeight="18.0" prefWidth="70.0" styleClass="datos-design" />
+                <Label fx:id="labelDm" layoutX="740.0" layoutY="61.0" prefHeight="18.0" prefWidth="70.0" styleClass="datos-design" />
+                <Label fx:id="labelDme" layoutX="740.0" layoutY="93.0" prefHeight="18.0" prefWidth="70.0" styleClass="datos-design" />
+                <Label fx:id="labelD" layoutX="740.0" layoutY="126.0" prefHeight="18.0" prefWidth="70.0" styleClass="datos-design" />
+                <Label layoutX="728.0" layoutY="206.0" styleClass="datos-title-design" text="Valor Critico" />
+                <Label fx:id="labelValorC" alignment="BASELINE_CENTER" layoutX="709.0" layoutY="230.0" prefHeight="31.0" prefWidth="114.0" styleClass="datos-design" />
+                <Label layoutX="737.0" layoutY="279.0" styleClass="datos-title-design" text="Resultado" />
+                <Label fx:id="labelResultado" alignment="BASELINE_CENTER" layoutX="709.0" layoutY="303.0" prefHeight="30.0" prefWidth="114.0" styleClass="datos-design" />
+                <ChoiceBox fx:id="NC" layoutX="397.0" layoutY="19.0" prefHeight="26.0" prefWidth="101.0" styleClass="datos-design" />
+            </children>
+        </Pane>
+        <Label layoutX="242.0" layoutY="189.0" prefHeight="63.0" prefWidth="534.0" styleClass="font-title, title-size-font" text="KS (Kolmogorov-Smirnov)" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.CuadradosMedios">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+
+        <Pane layoutX="28.0" layoutY="265.0" prefHeight="402.0" prefWidth="883.0" styleClass="pane-transparent">
+            <Label layoutX="358.0" layoutY="29.0" prefHeight="30.0" prefWidth="119.0" styleClass="datos-title-design" text="Número inicial:" />
+            <TextField fx:id="initialNumberField" layoutX="333.0" layoutY="62.0" styleClass="datos-design" />
+
+            <Label layoutX="103.0" layoutY="30.0" prefHeight="30.0" prefWidth="137.0" styleClass="datos-title-design" text="Número de dígitos:" />
+            <TextField fx:id="numberOfDigitsField" layoutX="91.0" layoutY="63.0" styleClass="datos-design" />
+
+            <Label layoutX="576.0" layoutY="30.0" prefHeight="31.0" prefWidth="232.0" styleClass="datos-title-design" text="Cantidad de números aleatorios:" />
+            <TextField fx:id="numberOfRandomNumbersField" layoutX="576.0" layoutY="60.0" prefHeight="31.0" prefWidth="209.0" styleClass="datos-design" />
+
+            <Label fx:id="resultLabel" layoutX="91.0" layoutY="152.0" prefHeight="58.0" prefWidth="713.0" styleClass="datos-title-design" text="" />
+
+            <Button layoutX="367.0" layoutY="349.0" onAction="#generateRandomNumbers" prefHeight="31.0" prefWidth="102.0" styleClass="button-comenzar" text="Generar" />
+        </Pane>
+        <Label layoutX="271.0" layoutY="187.0" prefHeight="63.0" prefWidth="402.0" styleClass="font-title, title-size-font" text="Cuadrados Medios" />
+
+    </children>
+
+
+</AnchorPane>

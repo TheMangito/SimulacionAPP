@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.OptionsMenu">
+   <children>
+      <Button layoutX="138.0" layoutY="205.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="179.0" styleClass="button-designLeft">
+         <graphic>
+            <Pane styleClass="font" prefHeight="83.0" prefWidth="151.0">
+               <children>
+                  <Label style="-fx-text-fill: white; flex: white;" layoutX="29.0" layoutY="27.0" prefHeight="51.0" prefWidth="136.0" text="Multiplica números por una constante para generar aleatoriedad" wrapText="true" />
+                  <Label styleClass="font" layoutX="29.0" layoutY="1.0" prefHeight="26.0" prefWidth="136.0" text="Multiplicación constante" />
+               </children>
+            </Pane>
+         </graphic></Button>
+      <Pane layoutX="14.0" layoutY="26.0" prefHeight="39.0" prefWidth="1200.0" />
+      <Button layoutX="391.0" layoutY="473.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="planet-button">
+         <graphic>
+            <Pane prefHeight="5.0" prefWidth="5.0" styleClass="planet-button2" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

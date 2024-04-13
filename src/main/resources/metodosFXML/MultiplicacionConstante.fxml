@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.MultiplicacionConstante">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+        <Pane layoutX="20.0" layoutY="265.0" prefHeight="402.0" prefWidth="904.0" styleClass="pane-transparent">
+            <children>
+                <Label layoutX="59.0" layoutY="113.0" prefHeight="26.0" prefWidth="20.0" styleClass="datos-title-design" text="A" />
+                <Label layoutX="56.0" layoutY="150.0" prefHeight="26.0" prefWidth="20.0" styleClass="datos-title-design" text="X0" />
+                <Label layoutX="9.0" layoutY="189.0" prefHeight="20.0" prefWidth="82.0" styleClass="datos-title-design" text="Iteraciones" />
+                <TextField fx:id="TextFieldA" layoutX="92.0" layoutY="115.0" styleClass="datos-design" />
+                <TextField fx:id="TextFieldX0" layoutX="92.0" layoutY="152.0" styleClass="datos-design" />
+                <TextField fx:id="TextFieldIT" layoutX="92.0" layoutY="185.0" styleClass="datos-design" />
+                <Button fx:id="boton1" layoutX="94.0" layoutY="232.0" mnemonicParsing="false" onAction="#boton1" prefHeight="31.0" prefWidth="155.0" styleClass="button-comenzar" text="Calcular" />
+                <TableView fx:id="Tabla" layoutX="290.0" layoutY="108.0" prefHeight="235.0" prefWidth="592.0">
+                    <columns>
+                        <TableColumn fx:id="ColX" prefWidth="63.999996185302734" text="X" />
+                        <TableColumn fx:id="ColNA" prefWidth="99.39999389648438" text="-" />
+                        <TableColumn fx:id="ColAX0" prefWidth="164.59999084472656" text="A*X0" />
+                        <TableColumn fx:id="ColExt" prefWidth="115.0" text="EXTRACCION" />
+                        <TableColumn fx:id="ColPsu" prefWidth="135.0" text="PSEUDOALEATORIOS" />
+                    </columns>
+                </TableView>
+                <ToolBar layoutX="292.0" layoutY="58.0" prefHeight="32.0" prefWidth="577.0" style="-fx-background-color: transparent">
+                    <items>
+                        <Label prefHeight="20.0" prefWidth="547.0" styleClass="datos-title-design" text="A =" />
+                        <Label fx:id="LabelA" styleClass="datos-title-design" />
+                    </items>
+                </ToolBar>
+            </children>
+        </Pane>
+        <Label layoutX="252.0" layoutY="194.0" prefHeight="63.0" prefWidth="462.0" styleClass="font-title, title-size-font" text="Multiplicación Contante" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+    </children>
+</AnchorPane>

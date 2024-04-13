@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.PruebaVarianza">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+        <Pane layoutX="20.0" layoutY="265.0" prefHeight="402.0" prefWidth="904.0" styleClass="pane-transparent">
+            <children>
+                <TextField fx:id="textField" layoutX="59.0" layoutY="103.0" prefHeight="36.0" prefWidth="174.0" styleClass="datos-design" />
+                <Button fx:id="button" layoutX="65.0" layoutY="258.0" mnemonicParsing="false" onAction="#button" prefHeight="47.0" prefWidth="162.0" styleClass="button-comenzar" text="Calcular" />
+                <TextField fx:id="nivelConfianza" layoutX="59.0" layoutY="198.0" prefHeight="36.0" prefWidth="174.0" styleClass="datos-design" />
+                <Label layoutX="81.0" layoutY="158.0" prefHeight="36.0" prefWidth="130.0" styleClass="datos-title-design" text="Nivel de Confianza" />
+                <Label layoutX="113.0" layoutY="65.0" prefHeight="36.0" prefWidth="94.0" styleClass="datos-title-design" text="Datos" />
+                <Label layoutX="346.0" layoutY="42.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="N" />
+                <Label layoutX="346.0" layoutY="101.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="S^2" />
+                <Label layoutX="346.0" layoutY="162.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="NC" />
+                <Label layoutX="346.0" layoutY="223.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="Alfa" />
+                <Label layoutX="348.0" layoutY="282.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="Alfa/2" />
+                <Label layoutX="566.0" layoutY="41.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="Za/2" />
+                <Label layoutX="566.0" layoutY="104.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="Chi1" />
+                <Label layoutX="566.0" layoutY="164.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="Chi2" />
+                <Label layoutX="566.0" layoutY="225.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="Li" />
+                <Label layoutX="567.0" layoutY="285.0" prefHeight="36.0" prefWidth="76.0" styleClass="datos-title-design" text="Ls" />
+                <Label layoutX="344.0" layoutY="341.0" prefHeight="27.0" prefWidth="76.0" styleClass="datos-title-design" text="Conclusion" />
+                <Label fx:id="nValue" layoutX="422.0" layoutY="41.0" prefHeight="36.0" prefWidth="130.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="varianza" layoutX="422.0" layoutY="100.0" prefHeight="36.0" prefWidth="130.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="nc" layoutX="422.0" layoutY="161.0" prefHeight="36.0" prefWidth="130.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="alfa" layoutX="422.0" layoutY="222.0" prefHeight="36.0" prefWidth="130.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="alfa_2" layoutX="424.0" layoutY="281.0" prefHeight="36.0" prefWidth="130.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="za_2" layoutX="642.0" layoutY="40.0" prefHeight="36.0" prefWidth="162.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="chi1" layoutX="642.0" layoutY="103.0" prefHeight="36.0" prefWidth="162.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="chi2" layoutX="642.0" layoutY="163.0" prefHeight="36.0" prefWidth="162.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="li" layoutX="642.0" layoutY="224.0" prefHeight="36.0" prefWidth="162.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="ls" layoutX="643.0" layoutY="284.0" prefHeight="36.0" prefWidth="162.0" styleClass="datos-design" textAlignment="CENTER" />
+                <Label fx:id="conclusion" layoutX="424.0" layoutY="341.0" prefHeight="27.0" prefWidth="384.0" styleClass="datos-design" textAlignment="CENTER" />
+            </children>
+        </Pane>
+        <Label layoutX="327.0" layoutY="191.0" prefHeight="63.0" prefWidth="337.0" styleClass="font-title, title-size-font" text="Prueba Varianza" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+    </children>
+</AnchorPane>

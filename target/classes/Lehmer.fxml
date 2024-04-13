@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.Lehmer">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+        <Pane layoutX="20.0" layoutY="265.0" prefHeight="402.0" prefWidth="904.0" styleClass="pane-transparent">
+            <children>
+                <Label fx:id="welcomeText" layoutX="154.0" layoutY="93.0" prefHeight="17.0" prefWidth="22.0" styleClass="datos-title-design" text="Xo" textAlignment="CENTER" wrapText="true" />
+                <TextField fx:id="XoText" layoutX="188.0" layoutY="89.0" maxHeight="26" maxWidth="100" minHeight="26" minWidth="100" prefHeight="26.0" prefWidth="100.0" styleClass="datos-design" />
+                <Label layoutX="161.0" layoutY="128.0" prefHeight="17.0" prefWidth="15.0" styleClass="datos-title-design" text="A" />
+                <TextField fx:id="AText" layoutX="188.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="100.0" styleClass="datos-design" />
+                <Label layoutX="24.0" layoutY="162.0" styleClass="datos-title-design" text="Numero de iteraciones" />
+                <TextField fx:id="numText" layoutX="188.0" layoutY="159.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="100.0" styleClass="datos-design" />
+                <Button fx:id="Aceptar" layoutX="98.0" layoutY="213.0" onAction="#Aceptar" prefHeight="36.0" prefWidth="134.0" styleClass="button-comenzar" text="Generar" />
+                <TableView fx:id="table" layoutX="393.0" layoutY="61.0" prefHeight="222.0" prefWidth="460.0">
+                    <columns>
+                        <TableColumn fx:id="iteracionCol" prefWidth="90.00002360343933" text="Iteración" />
+                        <TableColumn fx:id="YCol" prefWidth="96.79998779296875" text="Extracción Y" />
+                        <TableColumn fx:id="Extrac" prefWidth="79.00003051757812" text="Extracción" />
+                        <TableColumn fx:id="pseudoCol" prefWidth="98.79998779296875" text="Pseudonumero" />
+                        <TableColumn fx:id="ZCol" prefWidth="80.5999755859375" text="Z" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Label layoutX="409.0" layoutY="185.0" prefHeight="63.0" prefWidth="402.0" styleClass="font-title, title-size-font" text="Lehmer" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+    </children>
+</AnchorPane>

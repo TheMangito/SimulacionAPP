@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.Corridas">
+    <!-- Definir el clip para recortar el AnchorPane -->
+    <clip>
+        <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
+    </clip>
+    <children>
+        <Pane layoutX="28.0" layoutY="265.0" prefHeight="402.0" prefWidth="883.0" styleClass="pane-transparent">
+            <children>
+                <Label graphicTextGap="1.0" layoutX="47.0" layoutY="48.0" prefHeight="38.0" prefWidth="154.0" styleClass="datos-title-design" text="Ingrese los datos" />
+                <TextField fx:id="datos" layoutX="44.0" layoutY="95.0" prefHeight="17.0" prefWidth="138.0" styleClass="datos-design" />
+                <Button fx:id="button" layoutX="19.0" layoutY="251.0" mnemonicParsing="false" onAction="#Alto" prefHeight="65.0" prefWidth="182.0" styleClass="button-comenzar" text="Generar" />
+                <Label layoutX="33.0" layoutY="145.0" styleClass="datos-title-design" text="Ingrese nivel de confianza" />
+                <TextField fx:id="nc" layoutX="33.0" layoutY="185.0" styleClass="datos-design" />
+                <Label layoutX="287.0" layoutY="35.0" styleClass="datos-title-design" text="Corridas" />
+                <Label fx:id="corrida" disable="true" layoutX="239.0" layoutY="63.0" prefHeight="116.0" prefWidth="304.0" styleClass="datos-design" />
+                <Label layoutX="254.0" layoutY="203.0" styleClass="datos-title-design" text="Longitud de corridas" />
+                <Label fx:id="longi" disable="true" layoutX="239.0" layoutY="232.0" prefHeight="138.0" prefWidth="304.0" styleClass="datos-design" />
+                <Label layoutX="656.0" layoutY="43.0" prefHeight="25.0" prefWidth="37.0" styleClass="datos-title-design" text="Z" />
+                <Label layoutX="652.0" layoutY="85.0" prefHeight="25.0" prefWidth="44.0" styleClass="datos-title-design" text="Nc" />
+                <Label layoutX="652.0" layoutY="120.0" prefHeight="25.0" prefWidth="44.0" styleClass="datos-title-design" text="Zalfa/2" />
+                <Label layoutX="652.0" layoutY="155.0" prefHeight="25.0" prefWidth="44.0" styleClass="datos-title-design" text="Sigma" />
+                <Label layoutX="654.0" layoutY="189.0" prefHeight="25.0" prefWidth="53.0" styleClass="datos-title-design" text="Media" />
+                <Label fx:id="zo" disable="true" layoutX="707.0" layoutY="44.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label fx:id="ncor" disable="true" layoutX="710.0" layoutY="87.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label fx:id="zalfa" disable="true" layoutX="710.0" layoutY="121.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label fx:id="sigma" disable="true" layoutX="710.0" layoutY="155.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label fx:id="media" disable="true" layoutX="710.0" layoutY="189.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label layoutX="654.0" layoutY="223.0" prefHeight="25.0" prefWidth="37.0" styleClass="datos-title-design" text="N" />
+                <Label fx:id="ndatos" disable="true" layoutX="710.0" layoutY="224.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label fx:id="nco" disable="true" layoutX="707.0" layoutY="260.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label layoutX="652.0" layoutY="261.0" prefHeight="25.0" prefWidth="53.0" styleClass="datos-title-design" text="Co" />
+                <Label layoutX="652.0" layoutY="297.0" prefHeight="25.0" prefWidth="44.0" styleClass="datos-title-design" text="Inv" />
+                <Label layoutX="641.0" layoutY="334.0" prefHeight="25.0" prefWidth="69.0" styleClass="datos-title-design" text="Resultado" />
+                <Label fx:id="inv" disable="true" layoutX="707.0" layoutY="296.0" prefHeight="17.0" prefWidth="166.0" styleClass="datos-design" />
+                <Label fx:id="resu" disable="true" layoutX="710.0" layoutY="334.0" prefHeight="23.0" prefWidth="160.0" styleClass="datos-design" />
+            </children>
+        </Pane>
+        <Label layoutX="271.0" layoutY="187.0" prefHeight="63.0" prefWidth="402.0" styleClass="font-title, title-size-font" text="Prueba de Corridas" />
+        <Button fx:id="volver" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#volver" prefHeight="58.0" prefWidth="62.0" styleClass="volver-button" text="&lt;" />
+        <Button fx:id="cerrar" layoutX="895.0" layoutY="16.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="30.0" styleClass="close-button" text="X" />
+    </children>
+</AnchorPane>
