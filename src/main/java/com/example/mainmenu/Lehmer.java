@@ -28,6 +28,7 @@ public class Lehmer {
     @FXML private TextField XoText;
     @FXML private TextField AText;
     @FXML private TextField numText;
+    @FXML private TextField ZoText;
     @FXML private Button Aceptar;
 
     @FXML private TableView<Numero> table;
@@ -36,6 +37,7 @@ public class Lehmer {
     @FXML private TableColumn<Numero , Long> Extrac;
     @FXML private TableColumn<Numero , Double> pseudoCol;
     @FXML private TableColumn<Numero , Long> ZCol;
+
     private long ExtracLong;
     private double m;
     private long A;
@@ -89,11 +91,15 @@ public class Lehmer {
         String ZString = Long.toString(z);
         int ZLong = ZString.length();
 
-        String parteExtraida = ZString.substring(0, ZLong-largo);
-        ExtracLong = Long.parseLong(parteExtraida);
+        if(ZLong == largo){
+            ExtracLong = 0;
+        } else {
+            String parteExtraida = ZString.substring(0, ZLong - largo);
+            ExtracLong = Long.parseLong(parteExtraida);
+        }
 
-        int diferencia = ZString.length() - largo;
-        String YString = ZString.substring(diferencia, ZLong);
+        int diferencia = ZLong - largo;
+        String YString = ZString.substring(diferencia, ZString.length());
         Ylong = Long.parseLong(YString);
 
         Xo = (Ylong - ExtracLong);
@@ -118,6 +124,7 @@ public class Lehmer {
         XoText.setTextFormatter(new TextFormatter<>(filter));
         AText.setTextFormatter(new TextFormatter<>(filter));
         numText.setTextFormatter(new TextFormatter<>(filter));
+        ZoText.setTextFormatter(new TextFormatter<>(filter));
     }
 
 
@@ -127,6 +134,10 @@ public class Lehmer {
         long Xo = DatoXo();
 
         long A = DatoA();
+
+        long ZoLong = Xo*A;
+        String ZoString  = Long.toString(ZoLong);
+        ZoText.setText(ZoString);
 
         int num = DatoNum();
 
@@ -155,6 +166,7 @@ public class Lehmer {
         }
 
     }
+
     public long DatoXo(){
         if(XoText.getText() != ""){
             long Dato1 = Long.parseLong(XoText.getText());
@@ -163,6 +175,7 @@ public class Lehmer {
             throw new IllegalArgumentException("Faltan datos en Xo.");
         }
     }
+
     public long DatoA(){
         if(AText.getText() != ""){
             long Dato2 = Long.parseLong(AText.getText());
@@ -171,6 +184,7 @@ public class Lehmer {
             throw new IllegalArgumentException("Faltan datos en A.");
         }
     }
+
     public int DatoNum(){
         if(numText.getText() != ""){
             int Dato3 = Integer.parseInt(numText.getText());
@@ -182,18 +196,24 @@ public class Lehmer {
     public long getYlong() {
         return Ylong;
     }
+
     public long getExtracLong() {
         return ExtracLong;
     }
+
     public long getZ2() {
         return z2;
     }
+
+
     public class Numero {
         private int iteracion;
         private double pseudoNumero;
         private long YCol;
         private long Extrac;
         private long ZCol;
+
+
         public Numero(int iteracion, double pseudoNumero, long YCol, long Extrac, long ZCol) {
             this.iteracion = iteracion;
             this.pseudoNumero = pseudoNumero;
