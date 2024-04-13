@@ -154,36 +154,40 @@ public class PruebaMedia {
     }
 
     public void button(){
-        List<Double> lista = parseNumbers(textField.getText().substring(1));
-        double mediaValue = 0;
-        for (double number : lista){
-            System.out.println(number);
-            System.out.println(mediaValue);
-            mediaValue += number;
+        if (!nivelConfianza.getText().isEmpty() && !nValue.getText().isEmpty()) {
+            List<Double> lista = parseNumbers(textField.getText().substring(1));
+            double mediaValue = 0;
+            for (double number : lista){
+                System.out.println(number);
+                System.out.println(mediaValue);
+                mediaValue += number;
+            }
+            int nValue = lista.size();
+            mediaValue = mediaValue/nValue;
+            double nivelConfianza = (double) Integer.parseInt(this.nivelConfianza.getText()) /100;
+            double alpha = 1-nivelConfianza;
+            double alpha_2 = alpha/2;
+            double probabilidad = 1-alpha_2;
+            double za_2 = invNormEstand(probabilidad);
+            double li = ((double) nValue /100)-(za_2/ Math.sqrt(12*(nValue)));
+            double ls = ((double) nValue /100)+(za_2/ Math.sqrt(12*(nValue)));
+            this.nValue.setText(String.valueOf(nValue));
+            this.media.setText(String.format("%.4f", mediaValue));
+            this.alfa.setText(String.format("%.4f", alpha));
+            this.alfa_2.setText(String.format("%.4f", alpha_2));
+            this.za_2.setText(String.format("%.4f", za_2));
+            this.li.setText(String.format("%.4f", li));
+            this.ls.setText(String.format("%.4f", ls));
+            this.nc.setText(String.valueOf(nivelConfianza*100));
+
+            if (mediaValue>=li && mediaValue<=ls){
+                this.conclusion.setText("Se acepta Ho");
+            }else
+                this.conclusion.setText("No se acepta Ho");
+            int gradosLibertad = lista.size()-1;
         }
-
-        int nValue = lista.size();
-        mediaValue = mediaValue/nValue;
-        double nivelConfianza = (double) Integer.parseInt(this.nivelConfianza.getText()) /100;
-        double alpha = 1-nivelConfianza;
-        double alpha_2 = alpha/2;
-        double probabilidad = 1-alpha_2;
-        double za_2 = invNormEstand(probabilidad);
-        double li = ((double) nValue /100)-(za_2/ Math.sqrt(12*(nValue)));
-        double ls = ((double) nValue /100)+(za_2/ Math.sqrt(12*(nValue)));
-        this.nValue.setText(String.valueOf(nValue));
-        this.media.setText(String.format("%.4f", mediaValue));
-        this.alfa.setText(String.format("%.4f", alpha));
-        this.alfa_2.setText(String.format("%.4f", alpha_2));
-        this.za_2.setText(String.format("%.4f", za_2));
-        this.li.setText(String.format("%.4f", li));
-        this.ls.setText(String.format("%.4f", ls));
-        this.nc.setText(String.valueOf(nivelConfianza*100));
-
-        if (mediaValue>=li && mediaValue<=ls){
-            this.conclusion.setText("Se acepta Ho");
-        }else
-            this.conclusion.setText("No se acepta Ho");
-        int gradosLibertad = lista.size()-1;
+        else {
+            System.out.println("Error");
+        }
     }
 }
