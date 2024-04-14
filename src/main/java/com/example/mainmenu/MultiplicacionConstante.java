@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,9 +24,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MultiplicacionConstante {
+public class MultiplicacionConstante implements Initializable {
 
-    public class MulltiplicacionCo {
+    public static class MulltiplicacionCo {
         private String iteracion;
         private long X0;
         private long AX0;
@@ -89,7 +90,6 @@ public class MultiplicacionConstante {
     @FXML private TableColumn<MulltiplicacionCo, Long> ColExt;
     @FXML private TableColumn<MulltiplicacionCo, Double> ColPsu;
     private ObservableList<MulltiplicacionCo> mult;
-    @FXML private Button boton1;
     @FXML private TextField TextFieldA;
     @FXML private TextField TextFieldX0;
     @FXML private TextField TextFieldIT;
@@ -103,7 +103,7 @@ public class MultiplicacionConstante {
             long Extraido = Extraccion(A,AX0);
             double Pseudo = (double) Extraido / Math.pow(10, String.valueOf(A).length());
 
-            MulltiplicacionCo numero = new MulltiplicacionCo("X"+i, Xi, AX0, Extraido, Pseudo);
+            MulltiplicacionCo numero = new MulltiplicacionCo("X" + i, Xi, AX0, Extraido, Pseudo);
             mult.add(numero);
             this.Tabla.setItems(mult);
 
@@ -121,7 +121,7 @@ public class MultiplicacionConstante {
             return Long.parseLong(AX.substring(AX.length()-(A1.length()+2), AX.length()-2));
         }
     }
-
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         mult = FXCollections.observableArrayList();
         ColX.setCellValueFactory(new PropertyValueFactory<MulltiplicacionCo, String>("iteracion"));
