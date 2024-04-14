@@ -23,20 +23,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 public class CuadradosMedios {
-    @FXML
-    private AnchorPane mainmenu;
-    @FXML
-    private TextField initialNumberField;
-    @FXML
-    private TextField numberOfDigitsField;
-    @FXML
-    private TextField numberOfRandomNumbersField;
-    @FXML
-    private Label resultLabel;
-
+    @FXML private AnchorPane mainmenu;
+    @FXML private TextField initialNumberField;
+    @FXML private TextField numberOfDigitsField;
+    @FXML private TextField numberOfRandomNumbersField;
+    @FXML private Label resultLabel;
     private double xOffset = 0;
     private double yOffset = 0;
-
     public void generateRandomNumbers() {
         try {
             int initialNumber = Integer.parseInt(initialNumberField.getText());
@@ -49,7 +42,6 @@ public class CuadradosMedios {
             resultLabel.setText("Por favor, ingrese números válidos en todos los campos.");
         }
     }
-
     private List<Integer> generatePseudoRandomNumbers(int initialNumber, int numberOfDigits, int count) {
         List<Integer> randomNumbers = new ArrayList<>();
         for (int i = 0; i < count; i++) {
@@ -67,7 +59,6 @@ public class CuadradosMedios {
         }
         return randomNumbers;
     }
-
     public void volver(ActionEvent event) throws IOException {
         mainmenu.setDisable(true);
         Parent root = FXMLLoader.load(getClass().getResource("main-menu.fxml"));
@@ -98,7 +89,6 @@ public class CuadradosMedios {
             stage.setY(event.getScreenY() - yOffset);
         });
     }
-
     public void cerrar(){
         Platform.exit();
     }

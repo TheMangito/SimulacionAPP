@@ -32,13 +32,11 @@ public class ChiCuadrado {
     @FXML private TextField ValorX2;
     @FXML private TextField x2Prueba;
     @FXML private TextField pruebaHip;
-
     @FXML private TableView<Clase> table;
     @FXML private TableColumn<Clase , Integer> clases1;
     @FXML private TableColumn<Clase , String> clases2;
     @FXML private TableColumn<Clase , Integer> frecAbs;
     @FXML private TableColumn<Clase , Integer> frecAcum;
-
     @FXML private TableView<KDatos> kTable;
     @FXML private TableColumn<KDatos , Double> valorKColumn;
     @FXML private TableColumn<KDatos , String> kColumn;
@@ -71,7 +69,6 @@ public class ChiCuadrado {
     public void initialize(){
         valorKColumn.setCellValueFactory(new PropertyValueFactory<KDatos, Double>("ValorKColumn"));
         kColumn.setCellValueFactory(new PropertyValueFactory<KDatos, String>("kColumn"));
-
         clases1.setCellValueFactory(new PropertyValueFactory<Clase, Integer>("clases1"));
         clases2.setCellValueFactory(new PropertyValueFactory<Clase, String>("clases2"));
         frecAbs.setCellValueFactory(new PropertyValueFactory<Clase, Integer>("frecAbs"));

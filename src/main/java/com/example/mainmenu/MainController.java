@@ -124,6 +124,10 @@ public class MainController {
     public void pruebaKS(ActionEvent event) throws IOException {
         cargarMetodo(event, "/metodosFXML/PruebaKS.fxml", PruebaKS.class);
     }
+    public void pruebaMedia(ActionEvent event) throws IOException {
+        cargarMetodo(event, "/metodosFXML/PruebaMedia.fxml", PruebaMedia.class);
+    }
+
     public void pruebaVarianza(ActionEvent event) throws IOException {
         cargarMetodo(event, "/metodosFXML/PruebaVarianza.fxml", PruebaVarianza.class);
     }

@@ -28,6 +28,7 @@ public class Lehmer {
     @FXML private TextField XoText;
     @FXML private TextField AText;
     @FXML private TextField numText;
+    @FXML private TextField ZoText;
     @FXML private Button Aceptar;
 
     @FXML private TableView<Numero> table;
@@ -90,11 +91,15 @@ public class Lehmer {
         String ZString = Long.toString(z);
         int ZLong = ZString.length();
 
-        String parteExtraida = ZString.substring(0, ZLong-largo);
-        ExtracLong = Long.parseLong(parteExtraida);
+        if(ZLong == largo){
+            ExtracLong = 0;
+        } else {
+            String parteExtraida = ZString.substring(0, ZLong - largo);
+            ExtracLong = Long.parseLong(parteExtraida);
+        }
 
-        int diferencia = ZString.length() - largo;
-        String YString = ZString.substring(diferencia, ZLong);
+        int diferencia = ZLong - largo;
+        String YString = ZString.substring(diferencia, ZString.length());
         Ylong = Long.parseLong(YString);
 
         Xo = (Ylong - ExtracLong);
@@ -119,10 +124,14 @@ public class Lehmer {
         XoText.setTextFormatter(new TextFormatter<>(filter));
         AText.setTextFormatter(new TextFormatter<>(filter));
         numText.setTextFormatter(new TextFormatter<>(filter));
+        ZoText.setTextFormatter(new TextFormatter<>(filter));
     }
 
 
-    public void Aceptar(){
+    public void Aceptar(ActionEvent evento){
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        try {
+
         this.table.getItems().clear();
 
         long Xo = DatoXo();
@@ -130,6 +139,10 @@ public class Lehmer {
         long A = DatoA();
 
         int num = DatoNum();
+
+        long ZoLong = Xo*A;
+        String ZoString  = Long.toString(ZoLong);
+        ZoText.setText(ZoString);
 
         String mString = Long.toString(Xo);
         int largo = mString.length();
@@ -155,10 +168,16 @@ public class Lehmer {
             this.table.getItems().add(numero);
         }
 
+        } catch (NumberFormatException e) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("El valor tiene que ser un numero");
+            alert.show();
+        }
+
     }
 
     public long DatoXo(){
-        if(XoText.getText() != ""){
+        if(!XoText.getText().equals("")){
             long Dato1 = Long.parseLong(XoText.getText());
             return Dato1;
         } else {
@@ -167,7 +186,7 @@ public class Lehmer {
     }
 
     public long DatoA(){
-        if(AText.getText() != ""){
+        if(!AText.getText().equals("")){
             long Dato2 = Long.parseLong(AText.getText());
             return Dato2;
         } else {
@@ -176,7 +195,7 @@ public class Lehmer {
     }
 
     public int DatoNum(){
-        if(numText.getText() != ""){
+        if(!numText.getText().equals("")){
             int Dato3 = Integer.parseInt(numText.getText());
             return Dato3;
         } else {

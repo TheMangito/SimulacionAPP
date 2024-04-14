@@ -1,5 +1,4 @@
 package com.example.mainmenu;
-
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -13,16 +12,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.apache.commons.math3.distribution.NormalDistribution;
-
 public class Corridas {
     @FXML
     private AnchorPane mainmenu;
@@ -43,7 +39,6 @@ public class Corridas {
     @FXML private Label ncor;
     @FXML private Label inv;
     @FXML private Label resu;
-
     public static List<Double> parseNumbers(String data) {
         List<Double> numbers = new ArrayList<>();
         StringBuilder currentNumber = new StringBuilder();
@@ -64,7 +59,6 @@ public class Corridas {
     }
     public void Alto(){
         List<Double> lista = new ArrayList<>();
-
         if (!nc.getText().isEmpty() && !datos.getText().isEmpty()){
             lista=parseNumbers(this.datos.getText());
             j= Double.parseDouble(nc.getText());
@@ -105,9 +99,9 @@ public class Corridas {
             }else
                 listaS.add(0);
         }
+
         return listaS;
     }
-
     public static HashMap<Integer,Integer> corridas(List<Integer> lista){
         HashMap<Integer,Integer> corridas = new HashMap<>();
         int numCorrida = 1;
@@ -146,7 +140,6 @@ public class Corridas {
         NormalDistribution normalDistribution = new NormalDistribution();
         return normalDistribution.inverseCumulativeProbability(probability);
     }
-
     public void volver(ActionEvent event) throws IOException {
         mainmenu.setDisable(true);
         Parent root = FXMLLoader.load(getClass().getResource("main-menu.fxml"));
@@ -167,7 +160,6 @@ public class Corridas {
         });
         timeline.play();
     }
-
     public void cerrar(){
         Platform.exit();
     }

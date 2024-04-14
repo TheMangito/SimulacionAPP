@@ -1,4 +1,5 @@
 package com.example.mainmenu;
+
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -16,25 +17,23 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
+import org.apache.commons.math3.distribution.NormalDistribution;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.UnaryOperator;
 
-public class PruebaVarianza {
+public class PruebaMedia {
     @FXML private AnchorPane mainmenu;
     @FXML private TextField textField;
     @FXML private Label nValue;
-    @FXML private Label varianza;
+    @FXML private Label media;
     @FXML private Label nc;
     @FXML private Label alfa;
     @FXML private Label alfa_2;
     @FXML private Label za_2;
-    @FXML private Label chi1;
-    @FXML private Label chi2;
     @FXML private Label li;
     @FXML private Label ls;
     @FXML private Label conclusion;
@@ -73,7 +72,9 @@ public class PruebaVarianza {
             }
             return null;
         };
+
         nivelConfianza.setTextFormatter(new TextFormatter<>(filter));
+
     }
 
     public static List<Double> parseNumbers(String data) {
@@ -127,11 +128,16 @@ public class PruebaVarianza {
     // Método para calcular el valor inverso de la distribución normal estándar (INV.NORM.ESTAND)
     public static double invNormEstand(double probability) {
         if (probability <= 0.0 || probability >= 1.0) {
-            throw new IllegalArgumentException("La probabilidad debe estar entre 0 y 1.");
+            throw new IllegalArgumentException("La probabilidad debe estar entre 0 y 1, exclusivo.");
         }
 
-        NormalDistribution normalDistribution = new NormalDistribution();
-        return normalDistribution.inverseCumulativeProbability(probability);
+        try {
+            NormalDistribution normalDistribution = new NormalDistribution();
+            return normalDistribution.inverseCumulativeProbability(probability);
+        } catch (Exception e) {
+            // Captura excepciones específicas o generales que podrían surgir desde la biblioteca de distribución normal
+            throw new RuntimeException("Error al calcular la inversa de la distribución normal estándar: " + e.getMessage(), e);
+        }
     }
 
     // Método para calcular el valor inverso de la distribución chi-cuadrado (INV.CHICUAD)
@@ -147,39 +153,38 @@ public class PruebaVarianza {
         return chiSquaredDistribution.inverseCumulativeProbability(probability);
     }
 
-    public void button() {
+    public void button(){
         if (!nivelConfianza.getText().isEmpty() && !nValue.getText().isEmpty()) {
             List<Double> lista = parseNumbers(textField.getText().substring(1));
-            int nValue = lista.size();
-            double nivelConfianza = (double) Integer.parseInt(this.nivelConfianza.getText()) / 100;
-            double varianza = varS(lista);
-            double alpha = 1 - nivelConfianza;
-            double alpha_2 = alpha / 2;
-            double za_2 = invNormEstand(alpha_2);
-            double chi1 = invChiCuad(alpha_2, nValue - 1);
-            double chi2 = invChiCuad(1 - alpha_2, nValue - 1);
-            double li = chi1 / (12 * (nValue - 1));
-            double ls = chi2 / (12 * (nValue - 1));
-
-            this.nValue.setText(String.valueOf(nValue));
-            this.varianza.setText(String.valueOf(varianza));
-            this.alfa.setText(String.valueOf(alpha));
-            this.alfa_2.setText(String.valueOf(alpha_2));
-            this.za_2.setText(String.valueOf(1 - za_2));
-            this.chi1.setText(String.valueOf(chi1));
-            this.chi2.setText(String.valueOf(chi2));
-            this.li.setText(String.valueOf(li));
-            this.ls.setText(String.valueOf(ls));
-
-            if (varianza >= li && varianza <= ls) {
-                this.conclusion.setText("Se acepta Ho");
-            } else {
-                this.conclusion.setText("No se acepta Ho");
+            double mediaValue = 0;
+            for (double number : lista){
+                System.out.println(number);
+                System.out.println(mediaValue);
+                mediaValue += number;
             }
-            //probabilidad = 1 - alpha / 2
-            System.out.println("Valor inverso de la distribución normal estándar (INV.NORM.ESTAND) para P = " + nivelConfianza + ": " + invNormEstand(1 - alpha / 2));
+            int nValue = lista.size();
+            mediaValue = mediaValue/nValue;
+            double nivelConfianza = (double) Integer.parseInt(this.nivelConfianza.getText()) /100;
+            double alpha = 1-nivelConfianza;
+            double alpha_2 = alpha/2;
+            double probabilidad = 1-alpha_2;
+            double za_2 = invNormEstand(probabilidad);
+            double li = ((double) nValue /100)-(za_2/ Math.sqrt(12*(nValue)));
+            double ls = ((double) nValue /100)+(za_2/ Math.sqrt(12*(nValue)));
+            this.nValue.setText(String.valueOf(nValue));
+            this.media.setText(String.format("%.4f", mediaValue));
+            this.alfa.setText(String.format("%.4f", alpha));
+            this.alfa_2.setText(String.format("%.4f", alpha_2));
+            this.za_2.setText(String.format("%.4f", za_2));
+            this.li.setText(String.format("%.4f", li));
+            this.ls.setText(String.format("%.4f", ls));
+            this.nc.setText(String.valueOf(nivelConfianza*100));
+
+            if (mediaValue>=li && mediaValue<=ls){
+                this.conclusion.setText("Se acepta Ho");
+            }else
+                this.conclusion.setText("No se acepta Ho");
             int gradosLibertad = lista.size()-1;
-            System.out.println("Valor inverso de la distribución chi-cuadrado (INV.CHICUAD) para P = " + nivelConfianza + " y grados de libertad = " + gradosLibertad + ": " + invChiCuad(1 - alpha / 2, gradosLibertad));
         }
         else {
             System.out.println("Error");
