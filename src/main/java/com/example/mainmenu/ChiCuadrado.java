@@ -100,7 +100,7 @@ public class ChiCuadrado {
         Metodo1(lista,k, Ampli, Nc);
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("Datos erroneos o faltantes, revisa los datos ingresados");
+            alert.setContentText("Datos erroneos, por favor compruebe los datos ingresados");
             alert.show();
         }
 
