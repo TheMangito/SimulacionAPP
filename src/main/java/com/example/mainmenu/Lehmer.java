@@ -130,16 +130,28 @@ public class Lehmer {
 
     public void Aceptar(ActionEvent evento){
         Alert alert = new Alert(Alert.AlertType.NONE);
-        try {
 
         this.table.getItems().clear();
+        this.ZoText.clear();
 
-        long Xo = DatoXo();
+        try {
+        long Xo = Long.parseLong(XoText.getText());
 
-        long A = DatoA();
+        long A = Long.parseLong(AText.getText());
 
-        int num = DatoNum();
+        int num = Integer.parseInt(numText.getText());
 
+        Metodo1(Xo,A,num);
+
+        } catch (NumberFormatException e) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Datos erroneos o faltantes, revisa los datos ingresados");
+            alert.show();
+        }
+
+    }
+
+    public void Metodo1(long Xo, long A, int num){
         long ZoLong = Xo*A;
         String ZoString  = Long.toString(ZoLong);
         ZoText.setText(ZoString);
@@ -167,13 +179,6 @@ public class Lehmer {
             Numero numero = new Numero (i, rng.next(), rng.getYlong(), rng.getExtracLong(), rng.getZ2());
             this.table.getItems().add(numero);
         }
-
-        } catch (NumberFormatException e) {
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("El valor tiene que ser un numero");
-            alert.show();
-        }
-
     }
 
     public long DatoXo(){
@@ -201,7 +206,10 @@ public class Lehmer {
         } else {
             throw new IllegalArgumentException("Faltan datos en Numero de iteraciones.");
         }
+
     }
+
+
     public long getYlong() {
         return Ylong;
     }
