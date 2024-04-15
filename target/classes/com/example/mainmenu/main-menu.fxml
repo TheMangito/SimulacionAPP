@@ -113,7 +113,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="pruebaMedia" layoutX="727.0" layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" styleClass="button-designLeft">
+      <Button fx:id="pruebaMedia" onAction="#pruebaMedia" layoutX="727.0" layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" styleClass="button-designLeft">
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
@@ -265,24 +265,24 @@
          </image>
       </ImageView>
 
-      <Button fx:id="descargarProductosMedios" layoutX="105.0" layoutY="50.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionProductosMedios" layoutX="105.0" layoutY="80.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarMultiplicacionConstante" layoutX="35.0" layoutY="152.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionMultiplicacionConstante" layoutX="35.0" layoutY="182.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarKS" layoutX="8.0" layoutY="258.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionKS" layoutX="8.0" layoutY="288.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarChiCuadrada" layoutX="35.0" layoutY="363.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionChiCuadrada" layoutX="35.0" layoutY="393.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarCorridas" layoutX="110.0" layoutY="468.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionCorridas" layoutX="110.0" layoutY="498.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarLehmer" layoutX="814.0" layoutY="51.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionLehmer" layoutX="814.0" layoutY="81.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarCuadradosMedios" layoutX="900.0" layoutY="151.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionCuadradosMedios" layoutX="900.0" layoutY="181.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarPruebaMedia" layoutX="909.0" layoutY="258.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionPruebaMedia" layoutX="909.0" layoutY="288.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarPruebaVarianza" layoutX="900.0" layoutY="363.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionPruebaVarianza" layoutX="900.0" layoutY="393.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="productosMediosD" fx:id="descargarProductosMedios" layoutX="105.0" layoutY="50.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="productosMediosI" fx:id="informacionProductosMedios" layoutX="105.0" layoutY="80.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="multiplicacionContanetD" fx:id="descargarMultiplicacionConstante" layoutX="35.0" layoutY="152.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="multiplicacionContanetI"  fx:id="informacionMultiplicacionConstante" layoutX="35.0" layoutY="182.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="KsD" fx:id="descargarKS" layoutX="8.0" layoutY="258.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="KsI" fx:id="informacionKS" layoutX="8.0" layoutY="288.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="chiCuadradaD" fx:id="descargarChiCuadrada" layoutX="35.0" layoutY="363.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="chiCuadradaI" fx:id="informacionChiCuadrada" layoutX="35.0" layoutY="393.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="corridasD" fx:id="descargarCorridas" layoutX="110.0" layoutY="468.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="corridasI" fx:id="informacionCorridas" layoutX="110.0" layoutY="498.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="lehmerD" fx:id="descargarLehmer" layoutX="814.0" layoutY="51.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="lehmerI" fx:id="informacionLehmer" layoutX="814.0" layoutY="81.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="cuadradosMediosD" fx:id="descargarCuadradosMedios" layoutX="900.0" layoutY="151.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="cuadradosMediosI" fx:id="informacionCuadradosMedios" layoutX="900.0" layoutY="181.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="pruebaMediaD" fx:id="descargarPruebaMedia" layoutX="909.0" layoutY="258.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="pruebaMediaI" fx:id="informacionPruebaMedia" layoutX="909.0" layoutY="288.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="pruebaVarianzaD" fx:id="descargarPruebaVarianza" layoutX="900.0" layoutY="363.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="pruebaVarianzaI" fx:id="informacionPruebaVarianza" layoutX="900.0" layoutY="393.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button fx:id="descargarMontecarlo" layoutX="799.0" layoutY="468.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button fx:id="informacionMontecarlo" layoutX="799.0" layoutY="498.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
 

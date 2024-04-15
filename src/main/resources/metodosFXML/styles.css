@@ -51,6 +51,12 @@
     -fx-background-radius: 30;
     -fx-border-radius: 30;
 }
+.anchorpane-info-menu-design{
+    -fx-background-image: url('info-fondo.jpg');
+    -fx-background-size: cover;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+}
 /* Options Menu CSS //////////////////////////////////////*/
 .planet-button {
     -fx-background-color: transparent;

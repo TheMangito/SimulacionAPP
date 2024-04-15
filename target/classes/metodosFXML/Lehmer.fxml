@@ -19,7 +19,7 @@
                 <Label layoutX="24.0" layoutY="162.0" styleClass="datos-title-design" text="Numero de iteraciones" />
                 <TextField fx:id="numText" layoutX="188.0" layoutY="159.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="100.0" styleClass="datos-design" />
                 <Button fx:id="Aceptar" layoutX="98.0" layoutY="213.0" onAction="#Aceptar" prefHeight="36.0" prefWidth="134.0" styleClass="button-comenzar" text="Generar" />
-                <TableView fx:id="table" layoutX="393.0" layoutY="61.0" prefHeight="222.0" prefWidth="460.0">
+                <TableView fx:id="table" layoutX="330.0" layoutY="61.0" prefHeight="222.0" prefWidth="460.0">
                     <columns>
                         <TableColumn fx:id="iteracionCol" prefWidth="90.00002360343933" text="Iteración" />
                         <TableColumn fx:id="YCol" prefWidth="96.79998779296875" text="Extracción Y" />
@@ -28,6 +28,7 @@
                         <TableColumn fx:id="ZCol" prefWidth="80.5999755859375" text="Z" />
                     </columns>
                 </TableView>
+                <TextField fx:id="ZoText" layoutX="784.0" layoutY="61.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="100.0" styleClass="datos-design" />
             </children>
         </Pane>
         <Label layoutX="409.0" layoutY="185.0" prefHeight="63.0" prefWidth="402.0" styleClass="font-title, title-size-font" text="Lehmer" />
