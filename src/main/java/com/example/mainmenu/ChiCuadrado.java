@@ -97,7 +97,6 @@ public class ChiCuadrado {
             Ampli = 1/k;
         }
 
-        System.out.println();
         double min = lista.get(0);
         double max = lista.get(0);
         double rango;
@@ -105,8 +104,7 @@ public class ChiCuadrado {
         double desvEstand;
         double varianza;
         double Ai = lista.size()*Ampli;
-        System.out.println(lista);
-        System.out.println(lista.size());
+
         double chiCuad;
 
         double Nc = DatoNc();
@@ -140,18 +138,14 @@ public class ChiCuadrado {
         chiCuad = FrecuenciasK(k, Ampli, lista, Ai);
         String chiDecimal = String.format("%.4f", chiCuad);
         chiCuad = Double.parseDouble(chiDecimal);
-        System.out.println(chiCuad);
 
         double alfa = 1-(1 - Nc / 100);
-        System.out.println("Alfa: "+alfa);
         ChiSquaredDistribution chiSquaredDistribution = new ChiSquaredDistribution(k-1);
         double inverseChiSquare = chiSquaredDistribution.inverseCumulativeProbability(alfa);
         String StringInverseChiSquare = String.format("%.4f", inverseChiSquare);
         double inverseChiSquareMostrar = Double.parseDouble(StringInverseChiSquare);
-        System.out.println(inverseChiSquare);
 
         String condicion = pruebaDeHip(inverseChiSquare, chiCuad);
-        System.out.println(condicion);
 
         ValorX2.setText(String.valueOf(inverseChiSquareMostrar));
         pruebaHip.setText(condicion);
@@ -161,7 +155,7 @@ public class ChiCuadrado {
         chiCuad = 0;
         double chiCuadTotal = 0;
         String KdatosString = "k"+1;
-        System.out.println(KdatosString);
+
         String StringContadorAmpliMin = String.format("%.2f", contadorAmpli-Ampli);
         double AmpliMin = Double.parseDouble(StringContadorAmpliMin);
         String StringContadorAmpliMax = String.format("%.2f", contadorAmpli);
@@ -188,10 +182,8 @@ public class ChiCuadrado {
             }
 
             String intervalos = "("+AmpliMin+", "+AmpliMax+")";
-            System.out.println(frecuencia);
             chiCuad = Math.pow((frecuencia-Ai),2)/Ai;
             chiCuadTotal += chiCuad;
-            System.out.println(chiCuadTotal);
             contadorAmpli += Ampli;
 
             StringContadorAmpliMin = String.format("%.2f", contadorAmpli-Ampli);
@@ -247,29 +239,22 @@ public class ChiCuadrado {
         List<Double> numbers = new ArrayList<>();
         StringBuilder currentNumber = new StringBuilder();
 
-        // Recorre cada caracter en la cadena de datos
         for (int i = 0; i < data.length(); i++) {
             char c = data.charAt(i);
 
-            // Agrega el caracter al número actual
             currentNumber.append(c);
 
-            // Si el siguiente caracter es un punto, el actual es un dígito, y hay más caracteres por delante,
-            // eso significa que hemos llegado al final de un número.
             if (i + 1 < data.length() && data.charAt(i + 1) == '.' && Character.isDigit(c)) {
                 try {
                     double number = Double.parseDouble(currentNumber.toString());
                     numbers.add(number);
-                    // Reinicia el StringBuilder para el siguiente número
                     currentNumber.setLength(0);
                 } catch (NumberFormatException e) {
-                    // Manejar la excepción según sea necesario
                     System.out.println("Error al parsear: " + currentNumber.toString());
                 }
             }
         }
 
-        // Añade el último número si es que queda alguno
         if (currentNumber.length() > 0) {
             try {
                 double number = Double.parseDouble(currentNumber.toString());
