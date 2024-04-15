@@ -83,20 +83,30 @@ public class ChiCuadrado {
         this.kTable.getItems().clear();
         this.table.getItems().clear();
 
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        try {
         List<Double> lista = parseNumbers(Datos.getText().substring(1));
 
-        int n = lista.size();
-        String kString = KField.getText();
-        String ampliString = AmpField.getText();
-        double k = DatoK();
-        double Ampli = DatoAmpli();
+        double k = Double.parseDouble(KField.getText());
+        double Ampli = Double.parseDouble(AmpField.getText());
 
         if(k == 0){
             k = 1/Ampli;
-        } else if(Ampli == 0){
+        } else if(Ampli == 0 || Ampli>1){
             Ampli = 1/k;
         }
+        double Nc = Double.parseDouble(NcText.getText());
 
+        Metodo1(lista,k, Ampli, Nc);
+        } catch (Exception e) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Datos erroneos o faltantes, revisa los datos ingresados");
+            alert.show();
+        }
+
+    }
+
+    public void Metodo1(List<Double> lista, double k, double Ampli, double Nc){
         double min = lista.get(0);
         double max = lista.get(0);
         double rango;
@@ -106,8 +116,6 @@ public class ChiCuadrado {
         double Ai = lista.size()*Ampli;
 
         double chiCuad;
-
-        double Nc = DatoNc();
 
         for (int i = 1; i < lista.size(); i++) {
             if (lista.get(i) < min) {
