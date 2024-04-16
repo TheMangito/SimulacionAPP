@@ -12,15 +12,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 public class MainController {
-
     @FXML
     private AnchorPane mainroot;
     @FXML
@@ -47,6 +55,18 @@ public class MainController {
     @FXML private Button montecarlo;
     @FXML private Button multiplicacionConstante;
     @FXML private Button cuadradosMedios;
+    private File ksFile = new File("src/main/resources/metodosFXML/PruebaKS.xlsx");
+    private File productosMediosFile = new File("src/main/resources/metodosFXML/productosMediosFile.xlsx");
+    private File multiplicacionConstanteFile = new File("src/main/resources/metodosFXML/multiplicacionConstanteFile.xlsx");
+    private File chiCuadradaFile = new File("src/main/resources/metodosFXML/chiCuadradaFile.xlsx");
+    private File corridasFile = new File("src/main/resources/metodosFXML/corridasFile.xlsx");
+    private File lehmerFile = new File("src/main/resources/metodosFXML/lehmerFile.xlsx");
+    private File cuadradosMediosFIle = new File("src/main/resources/metodosFXML/cuadradosMediosFIle.xlsx");
+    private File pruebaMediaFile = new File("src/main/resources/metodosFXML/pruebaMediaFile.xlsx");
+    private File pruebaVarianzaFile = new File("src/main/resources/metodosFXML/pruebaVarianzaFile.xlsx");
+
+    public void initialize(){
+    }
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -69,8 +89,50 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
         optionsMenu.dragged(root, stage);
-         */
+        */
 
+    }
+
+    public void descargar (ActionEvent event) throws  IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar Excel");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Hoja de Calculo", "*.xlsx"));
+
+        File file = fileChooser.showSaveDialog(mainmenu.getScene().getWindow());
+        Node source = (Node) event.getSource();
+
+        String id = source.getId();
+        if (file != null) {
+            switch (id){
+                case "productosMediosD" ->{
+                    Files.copy(productosMediosFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "multiplicacionContanetD" ->{
+                    Files.copy(multiplicacionConstanteFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "KsD" ->{
+                    Files.copy(ksFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "chiCuadradaD" ->{
+                    Files.copy(chiCuadradaFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "corridasD" ->{
+                    Files.copy(corridasFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "lehmerD" ->{
+                    Files.copy(lehmerFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "cuadradosMediosD" ->{
+                    Files.copy(cuadradosMediosFIle.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "pruebaMediaD" ->{
+                    Files.copy(pruebaMediaFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                case "pruebaVarianzaD" ->{
+                    Files.copy(pruebaVarianzaFile.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+            }
+        }
     }
 
     public void informacion(ActionEvent event) throws IOException {
@@ -111,11 +173,29 @@ public class MainController {
                 cargarInformacion(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class, "Kolmogórov\nSmirnov (K-S)", informacion);
             }
             case "chiCuadradaI" ->{
-
-                cargarMetodo(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class);
+                String informacion ="La prueba chiCuadrada consta de los siguientes pasos\n" +
+                        "1. Agrupe los n números aleatorios generados en K clases disjuntas de igual\n" +
+                        "amplitud A.\n" +
+                        "2. Halle la frecuencia de cada clase fi.\n" +
+                        "3. A = 1/K, Se sigues una distribución con (K-1) grados de libertad.\n" +
+                        "4. Determine el valor critico X2\n" +
+                        "a, k-1 en la tabla de valores críticos de x2para un nivel\n" +
+                        "de confianza (1-a) y (k-1) grados de libertad Si x2>x2\n" +
+                        "a, k-1 existe una diferencia\n" +
+                        "significativa entre la distribución del conjunto de números generado y la\n" +
+                        "distribución uniforme, debe pues rechazar la hipótesis Ho de que la secuencia\n" +
+                        "de números generada proviene de una población distribuida uniforme (0,1), en\n" +
+                        "caso contrario al no existir diferencia significativa no puede rechazar la\n" +
+                        "hipótesis nula Ho.";
+                cargarInformacion(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class, "Chi Cuadrada", informacion);
             }
             case "corridasI" ->{
-                cargarMetodo(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class);
+                String informacion = "PASO 1 Determine una secuencia S de unos y ceros colocando un cero si el número aleatorio generado i es menor o igual que el número aleatorio generado anterior (i - 1), en caso contrario ponga un uno. La secuencia S contiene (n - 1) números debido a que el primer número no tiene anterior con el que compararlo.\n" +
+                        "PASO 2 Halle el número de corridas (rachas) observadas Co. Una corrida viene dada por el número de unos o ceros consecutivos que la forman.\n" +
+                        "PASO 3 Calcule el valor esperado y la variancia del número de corridas así como el estadístico Zo \n" +
+                        "Dado que Co sigue una distribución normal de media  y variancia, y Zo una distribución normal (0,1)\n" +
+                        "Si el estadístico Zo se encuentra dentro de los límites de aceptación no puede rechazar la hipótesis nula (H0) de que los números aleatorios generados son independientes, en caso contrario debe rechazar la hipótesis nula (H0).\n";
+                cargarInformacion(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class, "Corridas", informacion);
             }
             case "lehmerI" ->{
                 String informacion = "El Método de Lehmer, también conocido como algoritmo de multiplicación lineal, que es otro método para generar números pseudoaleatorios. Su procedimiento consta de 7 pasos:\n" +
@@ -138,10 +218,30 @@ public class MainController {
                 cargarInformacion(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class, "Cuadrados Medios", informacion);
             }
             case "pruebaMediaI" ->{
-                cargarMetodo(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class);
+                String informacion = "La prueba de la media es un procedimiento estadístico usado para determinar si la media de una población corresponde a un valor específico propuesto. Los pasos básicos son:\n" +
+                        "\n1. Establecer hipótesis:" +
+                        "• Hipótesis nula (H0): La media de la población es igual al valor propuesto (μ = μ0).\n" +
+                        "\n• Hipótesis alternativa (H1): La media de la población es diferente del valor propuesto (μ diferente de μ0), pudiendo ser mayor o menor según el análisis.\n" +
+                        "\n2. Seleccionar el nivel de significancia: Comúnmente 0.05, probabilidad de rechazar la hipótesis nula siendo verdadera.\n" +
+                        "\n3. Calcular el estadístico de prueba: Utilizando la media de la muestra (x̄), la desviación estándar de la muestra (s) y el tamaño de la muestra (n).\n" +
+                        "\n4. Comparar este valor con un valor crítico de la distribución t (si la varianza poblacional no es conocida y el tamaño de la muestra es pequeño) o de la distribución normal estándar (si la varianza poblacional es conocida o el tamaño de la muestra es grande).\n" +
+                        "\n5. Decisión:" +
+                        "Si el valor absoluto del estadístico de prueba es mayor que el valor crítico, se rechaza la hipótesis nula." +
+                        "\nSi el valor absoluto del estadístico de prueba es menor que el valor crítico, no hay suficiente evidencia para rechazar la hipótesis nula.\n";
+                cargarInformacion(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class, "Prueba Media", informacion);
             }
             case "pruebaVarianzaI" ->{
-                cargarMetodo(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class);
+                String informacion = "La prueba de varianza Chi-cuadrado es un método estadístico para determinar si la varianza de una población es igual a un valor específico propuesto. Los pasos principales son:\n" +
+                        "\n1. Establecer hipótesis:\n" +
+                        "\n• Hipótesis nula (H0): La varianza de la población es igual al valor propuesto (σ² = σ₀²).\n" +
+                        "\n• Hipótesis alternativa (H1): La varianza de la población no es igual al valor propuesto (σ² diferente de σ₀²), pudiendo ser mayor o menor.\n" +
+                        "\n2. Seleccionar el nivel de significancia: Usualmente 0.05, indica la probabilidad de rechazar la hipótesis nula siendo esta verdadera.\n" +
+                        "\n3. Calcular el estadístico de prueba:\n" +
+                        "\n• Se utiliza la varianza de la muestra (s²) y el tamaño de la muestra (n) para calcular el estadístico:\n" +
+                        "\n• Este valor se compara contra los valores críticos de la distribución Chi-cuadrado con n-1 grados de libertad.\n" +
+                        "\n4. Decisión:\n" +
+                        "\n• Rechazar la hipótesis nula si el estadístico de prueba cae fuera del rango especificado por los valores críticos.\n";
+                cargarInformacion(event, "/metodosFXML/info-fxml.fxml", InfoMenu.class, "Prueba Varianza", informacion);
             }
         }
     }

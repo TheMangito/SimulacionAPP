@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.shape.*?>
 
 <AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.MainController">
@@ -73,7 +74,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="lehmer" onAction="#lehmer" layoutX="611.0" layoutY="41.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" styleClass="button-designLeft">
+      <Button fx:id="lehmer" layoutX="611.0" layoutY="41.0" mnemonicParsing="false" onAction="#lehmer" prefHeight="75.0" prefWidth="200.0" styleClass="button-designLeft">
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
@@ -83,7 +84,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="ks" onAction="#pruebaKS" layoutX="40.0" layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="185.0" styleClass="button-designRight">
+      <Button fx:id="ks" layoutX="40.0" layoutY="250.0" mnemonicParsing="false" onAction="#pruebaKS" prefHeight="75.0" prefWidth="185.0" styleClass="button-designRight">
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
@@ -113,7 +114,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="pruebaMedia" onAction="#pruebaMedia" layoutX="727.0" layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" styleClass="button-designLeft">
+      <Button fx:id="pruebaMedia" layoutX="727.0" layoutY="250.0" mnemonicParsing="false" onAction="#pruebaMedia" prefHeight="75.0" prefWidth="179.0" styleClass="button-designLeft">
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
@@ -123,7 +124,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="pruebaVarianza" onAction="#pruebaVarianza" layoutX="711.0" layoutY="355.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="185.0" styleClass="button-designLeft">
+      <Button fx:id="pruebaVarianza" layoutX="711.0" layoutY="355.0" mnemonicParsing="false" onAction="#pruebaVarianza" prefHeight="75.0" prefWidth="185.0" styleClass="button-designLeft">
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
@@ -143,7 +144,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="multiplicacionConstante" onAction="#MultiplicacionContante" layoutX="67.0" layoutY="143.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" styleClass="button-designRight">
+      <Button fx:id="multiplicacionConstante" layoutX="67.0" layoutY="143.0" mnemonicParsing="false" onAction="#MultiplicacionContante" prefHeight="75.0" prefWidth="179.0" styleClass="button-designRight">
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
@@ -268,7 +269,7 @@
       <Button id="productosMediosD" fx:id="descargarProductosMedios" layoutX="105.0" layoutY="50.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button id="productosMediosI" fx:id="informacionProductosMedios" layoutX="105.0" layoutY="80.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button id="multiplicacionContanetD" fx:id="descargarMultiplicacionConstante" layoutX="35.0" layoutY="152.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button id="multiplicacionContanetI"  fx:id="informacionMultiplicacionConstante" layoutX="35.0" layoutY="182.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button id="multiplicacionContanetI" fx:id="informacionMultiplicacionConstante" layoutX="35.0" layoutY="182.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button id="KsD" fx:id="descargarKS" layoutX="8.0" layoutY="258.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button id="KsI" fx:id="informacionKS" layoutX="8.0" layoutY="288.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button id="chiCuadradaD" fx:id="descargarChiCuadrada" layoutX="35.0" layoutY="363.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
