@@ -20,7 +20,7 @@
     -fx-text-fill: white;
     -fx-fill: white;
     -fx-background-radius: 15;
-    -fx-background-color: linear-gradient(to right, rgba(171, 171, 171, 0.25) 8%, rgba(232, 232, 232, 0.02) 8%);
+    -fx-background-color: linear-gradient(to right, rgba(171, 171, 171, 0.25) 8%, rgba(232, 232, 232, 0.09) 8%);
 }
 .button-designLeft:hover {
     -fx-text-fill: white;
@@ -42,7 +42,7 @@
     -fx-text-fill: white;
     -fx-fill: white;
     -fx-background-radius: 15;
-    -fx-background-color: linear-gradient(to right, rgba(171, 171, 171, 0.25) 92%, rgba(232, 232, 232, 0.07) 8%);
+    -fx-background-color: linear-gradient(to right, rgba(171, 171, 171, 0.19) 92%, rgba(232, 232, 232, 0.2) 8%);
 }
 
 .anchorpane-design{

@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.media.*?>
 <?import javafx.scene.shape.*?>
 
 <AnchorPane fx:id="mainmenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="943.0" styleClass="anchorpane-design" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mainmenu.MainController">
@@ -11,7 +10,7 @@
    <clip>
       <Rectangle arcHeight="60" arcWidth="60" height="702" width="943" />
    </clip>
-   <AnchorPane fx:id="menu" visible="false">
+   <AnchorPane fx:id="menu">
       <Button layoutX="260.0" layoutY="378.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="planet-button">
          <graphic>
             <Pane prefHeight="5.0" prefWidth="5.0" styleClass="planet-button2" />
