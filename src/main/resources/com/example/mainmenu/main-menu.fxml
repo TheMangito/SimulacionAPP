@@ -137,8 +137,8 @@
          <graphic>
             <Pane prefHeight="83.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="12.0" layoutY="14.0" prefHeight="55.0" prefWidth="153.0" styleClass="font" text="Comprueba si la varianza de una muestra coincide con la esperada" wrapText="true" />
-                  <Label layoutX="12.0" layoutY="-5.0" prefHeight="26.0" prefWidth="155.0" styleClass="font-title" text="Montecarlo Ebrio Aleatorio" />
+                  <Label layoutX="12.0" layoutY="14.0" prefHeight="55.0" prefWidth="153.0" styleClass="font" text="Obtener informacion y documentacion" wrapText="true" />
+                  <Label layoutX="12.0" layoutY="-5.0" prefHeight="26.0" prefWidth="155.0" styleClass="font-title" text="Informacion Adicional" />
                </children>
             </Pane>
          </graphic>
@@ -283,8 +283,8 @@
       <Button id="pruebaMediaI" fx:id="informacionPruebaMedia" layoutX="909.0" layoutY="288.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button id="pruebaVarianzaD" fx:id="descargarPruebaVarianza" layoutX="900.0" layoutY="363.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
       <Button id="pruebaVarianzaI" fx:id="informacionPruebaVarianza" layoutX="900.0" layoutY="393.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="descargarMontecarlo" layoutX="799.0" layoutY="468.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
-      <Button fx:id="informacionMontecarlo" layoutX="799.0" layoutY="498.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button fx:id="descargarMontecarlo" disable="true" layoutX="799.0" layoutY="468.0" mnemonicParsing="false" onAction="#descargar" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
+      <Button fx:id="informacionMontecarlo" disable="true" layoutX="799.0" layoutY="498.0" mnemonicParsing="false" onAction="#informacion" prefHeight="25.0" prefWidth="30.0" styleClass="information-button" />
 
 
    </AnchorPane>
