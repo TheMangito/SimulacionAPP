@@ -1,4 +1,34 @@
 
+.anchorpane-info-menu-design{
+    -fx-background-image: url('info-fondo.jpg');
+    -fx-background-size: cover;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+}
+
+.pane-transparent{
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: rgba(255, 255, 255, 0.33);
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-width: 3;
+}
+
+.volver-button{
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-border-color: #fffffd;
+    -fx-font-family: "SF Pro Text Bold";
+    -fx-font-size: 20px;
+    -fx-text-fill: #fffffd;
+    -fx-alignment: center;
+    -fx-background-color: transparent;
+}
+.volver-button:hover{
+    -fx-scale-y: 1.2;
+    -fx-scale-x: 1.2;
+}
+
 .dialogo-burbuja {
     -fx-background-color: #e0e0e0;
     -fx-background-radius: 10;
